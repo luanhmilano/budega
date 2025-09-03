@@ -3,6 +3,7 @@ import { RoutesUrls } from "./utils/enums/routes-url";
 import HomeController from "./pages/home/index.page";
 import ErrorsController from "./pages/errors/index.page";
 import CartController from "./pages/cart/index.page";
+import ProductsController from "./pages/products/index.page";
 
 export function RouterProvider() {
     const routes = [
@@ -18,10 +19,10 @@ export function RouterProvider() {
             path: RoutesUrls.CART,
             element: <CartController />
         },
-        // {
-        //     path: RoutesUrls.PRODUCT,
-        //     element: <ProductController />
-        // }
+        {
+             path: RoutesUrls.PRODUCT,
+             element: <ProductsController />
+         }
     ];
 
     return (
