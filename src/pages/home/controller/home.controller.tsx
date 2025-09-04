@@ -7,6 +7,7 @@ export default function HomeController() {
     const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
+    // Hook de fetch de produtos
     useEffect(() => {
         const fetchProducts = async () => {
             try {
