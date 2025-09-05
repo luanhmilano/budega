@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.productGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.viewCartButton {
+  background-color: #d703df;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.viewCartButton:hover {
+  background-color: #6b026e;
+}
