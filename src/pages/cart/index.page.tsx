@@ -1,3 +1,3 @@
-import CartController from "./controller/cart.controller";
+import CartController from './controller/cart.controller';
 
 export default CartController;
