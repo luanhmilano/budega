@@ -1,9 +1,12 @@
 import './App.css'
+import { CartProvider } from './context/cart-context'
 import { RouterProvider } from './routes'
 
 function App() {
   return (
-      <RouterProvider />
+      <CartProvider>
+        <RouterProvider />
+      </CartProvider>
   )
 }
 

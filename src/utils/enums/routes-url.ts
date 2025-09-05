@@ -1,6 +1,6 @@
 export const RoutesUrls = {
     BASE_URL: '/',
-    ERRORS: '/errors',
+    CHECKOUT: '/checkout',
     CART: '/cart',
     PRODUCT: '/product/:id',
 } as const;

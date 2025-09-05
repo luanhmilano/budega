@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { RoutesUrls } from "./utils/enums/routes-url";
 import HomeController from "./pages/home/index.page";
-import ErrorsController from "./pages/errors/index.page";
 import CartController from "./pages/cart/index.page";
 import ProductsController from "./pages/products/index.page";
+import CheckoutController from "./pages/checkout/index.page";
 
 export function RouterProvider() {
     const routes = [
@@ -12,8 +12,8 @@ export function RouterProvider() {
             element: <HomeController />
         },
         {
-            path: RoutesUrls.ERRORS,
-            element: <ErrorsController />
+            path: RoutesUrls.CHECKOUT,
+            element: <CheckoutController />
         },
         {
             path: RoutesUrls.CART,
