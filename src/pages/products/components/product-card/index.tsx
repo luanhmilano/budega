@@ -14,7 +14,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <img src={product.image} alt={product.name} className={styles.productImage} />
             <h3 className={styles.productName}>{product.name}</h3>
             <p className={styles.productDescription}>{product.description}</p>
-            <p className={styles.productPrice}>{formattedPrice(product)}</p>
+            <p className={styles.productPrice}>{formattedPrice(product.price)}</p>
             <div className={styles.buttonGroup}>
                 <Link to={`/product/${product.id}`} className={styles.viewProductButton}>
                     Ver Produto

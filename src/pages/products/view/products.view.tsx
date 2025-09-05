@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from '../styles/product.view.module.css';
 import type { ProductsProps } from '../types';
 
@@ -43,9 +44,12 @@ export default function Products({
                             ))}
                         </div>
                     )}
-                    <button onClick={handleAddToCart} className={styles.addToCartButton}>
-                        Adicionar ao Carrinho
-                    </button>
+                    <div className={styles.buttonGroup}>
+                        <button onClick={handleAddToCart} className={styles.addToCartButton}>
+                            Adicionar ao Carrinho
+                        </button>
+                        <Link to="/cart" className={styles.viewCartButton}>Ver o carrinho</Link>
+                    </div>
                 </div>
             </div>
         </div>

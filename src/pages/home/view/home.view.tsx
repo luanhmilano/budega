@@ -1,6 +1,7 @@
 import styles from '../styles/home.module.css';
 import { ProductCard } from "../../products/components/product-card";
 import type { HomeProps } from '../types';
+import { Link } from 'react-router-dom';
 
 export default function Home({
     isLoading,
@@ -13,7 +14,10 @@ export default function Home({
 
     return (
         <div>
-            <h1>Nossos Produtos</h1>
+            <div className={styles.header}>
+                <h1>Nossos Produtos</h1>
+                <Link to="/cart" className={styles.viewCartButton}>Ver o carrinho</Link>
+            </div>
             <div className={styles.productGrid}>
                 {products.map((product) => (
                     <ProductCard

@@ -82,3 +82,27 @@
   font-size: 1.5em;
   padding: 50px;
 }
+
+.buttonGroup {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.viewCartButton {
+  background-color: #d703df;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-align: center;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.viewCartButton:hover {
+  background-color: #5b025e;
+}
