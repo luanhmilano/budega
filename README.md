@@ -144,9 +144,8 @@ Desenvolver um e-commerce frontend como projeto de estudo para aprofundar conhec
 ### Fase 2: Persistência e UX (2-3 semanas)
 
 1. **Persistência entre Sessões (3-4 dias)**
-   - [ ] Implementar hook `useLocalStorage` para carrinho.
-   - [ ] Criar middleware para sincronizar CartContext com localStorage.
-   - [ ] Adicionar loading state durante hidratação inicial.
+   - [x] Implementar hook `useLocalStorage` para carrinho.
+   - [x] Criar lógica para sincronizar CartContext com localStorage.
 
 2. **Estilização e Loading States (5-7 dias)**
    - [ ] Implementar sistema de design básico (cores, tipografia, espaçamentos).
@@ -203,7 +202,7 @@ Desenvolver um e-commerce frontend como projeto de estudo para aprofundar conhec
 
 1. **Deploy e Monitoramento (2-3 dias)**
    - [ ] Setup do GitHub Pages ou Vercel.
-   - [ ] Configurar pipeline de deploy automático.
+   - [ ] Configurar pipeline de deploy automático. 
    - [ ] Documentar processo de deploy.
 
 ---
