@@ -1,10 +1,11 @@
-# Documento de Arquitetura de Software: E-commerce de Estudo
+# Documento de Arquitetura de Software: E-commerce "Budega"
 
 ---
 
 | Versão | Data de Modificação | O que mudou |
 | ------ | ------------------ | ----------- |
 | 1.0.0  | 02/09/2025         | Primeira implementação do documento |
+| 2.0.0  | 31/10/2025         | MVP Finalizado, definição das implementações Pós-MVP e estrutura da aplicação |
 
 ---
 
@@ -20,7 +21,7 @@ Desenvolver um e-commerce frontend como projeto de estudo para aprofundar conhec
 **Proposta de Valor:**  
 - Arquitetura limpa e desacoplada (View/Controller).
 - Suíte de testes completa (unitário, mutação, componente).
-- Práticas modernas do ecossistema React e recomendações da Telefónica.
+- Práticas modernas do ecossistema React.
 
 ---
 
@@ -51,32 +52,32 @@ Desenvolver um e-commerce frontend como projeto de estudo para aprofundar conhec
 ## 3. Requisitos (MoSCoW)
 
 ### Must Have (MVP Essencial)
-- Projeto React com Vite.
-- Estrutura de pastas e arquivos definida.
-- Sistema de rotas: Home, ProductDetail, Cart.
-- Lista de produtos hard-coded na HomePage.
-- ProductDetailPage com opções simuladas e botão "Adicionar ao Carrinho".
-- CartPage para visualizar, alterar quantidade e remover itens.
-- Gestão de estado do carrinho (Context API).
+- ✅ Projeto React com Vite.
+- ✅ Estrutura de pastas e arquivos definida.
+- ✅ Sistema de rotas: Home, ProductDetail, Cart, etc.
+- ✅ Lista de produtos hard-coded na HomePage.
+- ✅ ProductDetailPage com opções simuladas e botão "Adicionar ao Carrinho".
+- ✅ CartPage para visualizar, alterar quantidade e remover itens.
+- ✅ Gestão de estado do carrinho (Context API).
 
 ### Should Have (Alta Prioridade Pós-MVP)
-- Integração com API mock via Tweak.
-- Internacionalização com i18next.
+- Persistência entre sessões (ex: localStorage).
+- Estilização e Indicadores de loading (skeletons).
 - Testes unitários (React Testing Library) para controllers e utils.
 - Testes de componente/E2E (Cypress) para o fluxo principal.
-- Formulários com validação (React Hook Form + Zod).
-- Indicadores de loading (skeletons).
+- Internacionalização com i18next.
 
 ### Could Have (Menor Prioridade)
+- Integração com API mock via Tweak.
 - Testes de mutação com Stryker.
 - Layout do Figma.
 - Storybook para componentes de UI.
 
 ### Won't Have (Fora do Escopo Inicial)
 - Autenticação de usuário.
+- Formulários com validação (React Hook Form + Zod).
 - Processo de checkout e pagamento.
 - Backend ou banco de dados.
-- Persistência entre sessões (ex: localStorage).
 
 ---
 
@@ -85,30 +86,20 @@ Desenvolver um e-commerce frontend como projeto de estudo para aprofundar conhec
 ### Arquitetura Geral: View/Controller com Hooks
 
 - **Controller:**  
-  Lógica de negócio, manipulação de estado, efeitos colaterais e callbacks encapsulados em hooks customizados (ex: `useHomeController`).
+  Lógica de negócio, manipulação de estado, efeitos colaterais e callbacks encapsulados em funções controladoras (ex: `HomeController`).
 
 - **View:**  
   Componente React responsável apenas por renderizar a UI com dados e handlers do controller. Mantido o mais "burro" possível.
 
-#### Diagrama de Fluxo de Dados
-
-> Adição de produto ao carrinho (PlantUML):
-
-![Diagrama de Fluxo](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA/8AAAGeCAYAAADCNbGAAAAQAElEQVR4A...)
-
 ### Gestão de Estado
-
-- **Server State:**  
-  React Query para buscar, cachear e sincronizar dados dos produtos da API mock. Gerencia estados de loading, error e success.
 
 - **Global Client State:**  
   Context API para gerenciar o estado do carrinho (estrutura simples, 100% cliente).
 
 ### API Mocking
 
-- Tweak intercepta chamadas do ProductService.
 - Mock em `mocks/products.json` seguindo interface `IProduct`.
-- Tweak retorna o JSON no endpoint `/products`.
+- Chamadas atrasadas para simular uma chamada de requisição.
 
 ### Data Contracts (Interfaces)
 
@@ -128,25 +119,92 @@ Desenvolver um e-commerce frontend como projeto de estudo para aprofundar conhec
 
 ---
 
-## 5. Plano de Implementação (MVP-First)
+## 5. Plano de Implementação
 
-1. **Bootstrap do Projeto (1-2 dias)**
+### Fase 1: MVP (Concluída) ✅
+
+1. **Bootstrap do Projeto**
    - [x] Criar projeto React com Vite.
    - [x] Instalar dependências essenciais.
    - [x] Estruturar pastas.
 
-2. **Rotas e Páginas Básicas (2-3 dias)**
+2. **Rotas e Páginas Básicas**
    - [x] Configurar rotas: Home, ProductDetail/:id, Cart.
    - [x] Criar componentes de view vazios.
 
-3. **Estado do Carrinho e Contratos (2-3 dias)**
-   - Definir interfaces `IProduct` e `ICartItem`.
-   - Criar CartContext com funções principais.
+3. **Estado do Carrinho e Contratos**
+   - [x] Definir interfaces `IProduct` e `ICartItem`.
+   - [x] Criar CartContext com funções principais.
 
-4. **Fluxo com Dados Hard-coded (3-5 dias)**
-   - Array de produtos fake no controller.
-   - Lógica de passagem de dados para view.
-   - Implementar addToCart e gerenciamento do carrinho.
+4. **Fluxo com Dados Hard-coded**
+   - [x] Array de produtos fake no controller.
+   - [x] Lógica de passagem de dados para view.
+   - [x] Implementar addToCart e gerenciamento do carrinho.
+
+### Fase 2: Persistência e UX (2-3 semanas)
+
+1. **Persistência entre Sessões (3-4 dias)**
+   - [ ] Implementar hook `useLocalStorage` para carrinho.
+   - [ ] Criar middleware para sincronizar CartContext com localStorage.
+   - [ ] Adicionar loading state durante hidratação inicial.
+
+2. **Estilização e Loading States (5-7 dias)**
+   - [ ] Implementar sistema de design básico (cores, tipografia, espaçamentos).
+   - [ ] Criar componentes de skeleton para produtos e carrinho.
+   - [ ] Adicionar loading spinners e estados de carregamento.
+   - [ ] Implementar feedback visual para ações do usuário (toast notifications).
+
+3. **Melhoria de UX (2-3 dias)**
+   - [ ] Adicionar animações de transição entre páginas.
+   - [ ] Implementar debounce para busca de produtos.
+   - [ ] Criar componente de quantidade com controles visuais.
+
+### Fase 3: Testes e Qualidade (2-3 semanas)
+
+1. **Testes Unitários (5-7 dias)**
+   - [ ] Configurar React Testing Library e Jest.
+   - [ ] Implementar testes para todos os controllers.
+   - [ ] Criar testes para utils e helpers.
+   - [ ] Testar hooks customizados (useLocalStorage, etc).
+   - [ ] Atingir cobertura mínima de 90%.
+
+2. **Testes de Componente/E2E (5-7 dias)**
+   - [ ] Configurar Cypress para testes E2E.
+   - [ ] Implementar testes do fluxo principal:
+     - Navegar da Home → ProductDetail → adicionar ao carrinho.
+     - Gerenciar itens no carrinho (alterar quantidade, remover).
+     - Persistência entre reloads da página.
+   - [ ] Testes de acessibilidade básica.
+
+3. **Pipeline de Qualidade (2-3 dias)**
+   - [ ] Configurar GitHub Actions para CI/CD.
+   - [ ] Integrar ESLint com regras estritas.
+   - [ ] Configurar Prettier para formatação.
+   - [ ] Setup de pre-commit hooks com Husky.
+
+### Fase 4: Internacionalização (1-2 semanas)
+
+1. **Setup i18next (2-3 dias)**
+   - [ ] Instalar e configurar react-i18next.
+   - [ ] Criar arquivos de tradução (pt-BR, en-US).
+   - [ ] Implementar hook customizado para tradução.
+
+2. **Implementação (3-4 dias)**
+   - [ ] Traduzir todos os textos estáticos.
+   - [ ] Implementar formatação de números e moedas.
+   - [ ] Criar componente de seletor de idioma.
+   - [ ] Persistir preferência de idioma no localStorage.
+
+3. **Testes de Internacionalização (1-2 dias)**
+   - [ ] Testes unitários para formatação de textos.
+   - [ ] Testes E2E para troca de idiomas.
+
+### Fase 5: Deploy (1 semana)
+
+1. **Deploy e Monitoramento (2-3 dias)**
+   - [ ] Setup do GitHub Pages ou Vercel.
+   - [ ] Configurar pipeline de deploy automático.
+   - [ ] Documentar processo de deploy.
 
 ---
 
