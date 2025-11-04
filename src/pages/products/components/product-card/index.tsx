@@ -19,10 +19,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {formattedPrice(product.price)}
       </p>
       <div className="buttonGroup">
-        <Link
-          to={`/product/${product.id}`}
-          className="btn btn-secondary viewProductButton"
-        >
+        <Link to={`/product/${product.id}`} className="btn btn-primary">
           Ver Produto
         </Link>
         <button
