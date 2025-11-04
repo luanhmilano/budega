@@ -81,7 +81,11 @@ export default function Cart({
             <span>Total</span>
             <span>{formattedTotalPrice}</span>
           </div>
-          <Link to="/checkout" className={styles.checkoutButton}>
+          <Link
+            to="/checkout"
+            className={styles.checkoutButton}
+            onClick={clearCart}
+          >
             Finalizar Compra
           </Link>
           <button
