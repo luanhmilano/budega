@@ -1,0 +1,191 @@
+/* Container principal do checkout */
+.checkoutContainer {
+  padding: var(--space-lg);
+}
+
+/* Layout do checkout */
+.checkoutLayout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--space-xxl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .checkoutLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* Seção principal */
+.checkoutMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.checkoutTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.successMessage {
+  background-color: #f0f9ff;
+  border: 1px solid #0ea5e9;
+  border-radius: var(--border-radius);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.successMessage h2 {
+  color: #0369a1;
+  margin-bottom: var(--space-md);
+}
+
+.successMessage p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+/* Resumo do pedido */
+.orderSummary {
+  background-color: var(--color-background-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-lg);
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: var(--space-lg);
+}
+
+.summaryTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Itens do pedido */
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.orderItemImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+
+.orderItemDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.orderItemName {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.orderItemVariant {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.orderItemQuantity {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.orderItemPrice {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin: 0;
+}
+
+/* Totais */
+.orderTotals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.orderTotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+
+.orderTotalFinal {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-md);
+}
+
+/* Botões de ação */
+.checkoutActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+/* Estado vazio */
+.emptyCheckout {
+  text-align: center;
+  padding: var(--space-xxl);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.emptyCheckout h2 {
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.emptyCheckout p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}

@@ -1,7 +1,8 @@
+import '../styles/cart.view.styles.css';
+
 import { Link } from 'react-router-dom';
 
 import { formattedPrice } from '../../../utils/formatted-price';
-import styles from '../styles/cart.view.module.css';
 import type { CartProps } from '../types';
 
 export default function Cart({
@@ -13,9 +14,9 @@ export default function Cart({
 }: Readonly<CartProps>) {
   if (cartItems.length === 0) {
     return (
-      <div className={styles.emptyCart}>
+      <div className="emptyCart">
         <h2>O seu carrinho está vazio.</h2>
-        <Link to="/" className={styles.continueShopping}>
+        <Link to="/" className="btn btn-primary">
           Continuar a comprar
         </Link>
       </div>
@@ -23,27 +24,25 @@ export default function Cart({
   }
 
   return (
-    <div className={styles.pageContainer}>
+    <div className="container">
       <h1>Meu Carrinho</h1>
-      <div className={styles.cartGrid}>
-        <div className={styles.cartItems}>
+      <div className="cartGrid">
+        <div className="cartItems">
           {cartItems.map((item) => (
-            <div key={item.cartItemId} className={styles.cartItem}>
-              <img
-                src={item.image}
-                alt={item.name}
-                className={styles.itemImage}
-              />
-              <div className={styles.itemDetails}>
+            <div key={item.cartItemId} className="card cartItem">
+              <img src={item.image} alt={item.name} className="itemImage" />
+              <div className="itemDetails">
                 <h3>{item.name}</h3>
                 {Object.entries(item.selectedVariants).map(([name, value]) => (
-                  <p key={name} className={styles.itemVariant}>
+                  <p key={name} className="itemVariant">
                     {name}: {value}
                   </p>
                 ))}
-                <p className={styles.itemPrice}>{formattedPrice(item.price)}</p>
+                <p className="itemPrice price price-medium">
+                  {formattedPrice(item.price)}
+                </p>
               </div>
-              <div className={styles.itemActions}>
+              <div className="itemActions">
                 <input
                   type="number"
                   min="1"
@@ -51,14 +50,14 @@ export default function Cart({
                   onChange={(e) =>
                     updateQuantity(
                       item.cartItemId,
-                      parseInt(e.target.value, 10),
+                      Number.parseInt(e.target.value, 10),
                     )
                   }
-                  className={styles.quantityInput}
+                  className="form-input quantityInput"
                 />
                 <button
                   onClick={() => removeFromCart(item.cartItemId)}
-                  className={styles.removeButton}
+                  className="btn btn-danger btn-small"
                 >
                   Remover
                 </button>
@@ -67,28 +66,24 @@ export default function Cart({
           ))}
         </div>
 
-        <div className={styles.summary}>
+        <div className="card summary">
           <h2>Resumo do Pedido</h2>
-          <div className={styles.summaryRow}>
+          <div className="summaryRow">
             <span>Subtotal</span>
             <span>{formattedTotalPrice}</span>
           </div>
-          <div className={styles.summaryRow}>
+          <div className="summaryRow">
             <span>Entrega</span>
             <span>A calcular</span>
           </div>
-          <div className={`${styles.summaryRow} ${styles.totalRow}`}>
+          <div className="summaryRow totalRow">
             <span>Total</span>
             <span>{formattedTotalPrice}</span>
           </div>
-          <Link to="/checkout" className={styles.checkoutButton}>
+          <Link to="/checkout" className="btn btn-accent">
             Finalizar Compra
           </Link>
-          <button
-            type="button"
-            onClick={clearCart}
-            className={styles.removeButton}
-          >
+          <button type="button" onClick={clearCart} className="btn btn-danger">
             Esvaziar Carrinho
           </button>
         </div>

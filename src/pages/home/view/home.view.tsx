@@ -1,7 +1,8 @@
+import '../styles/home.styles.css';
+
 import { Link } from 'react-router-dom';
 
 import { ProductCard } from '../../products/components/product-card';
-import styles from '../styles/home.module.css';
 import type { HomeProps } from '../types';
 
 export default function Home({
@@ -10,18 +11,18 @@ export default function Home({
   handleAddToCart,
 }: Readonly<HomeProps>) {
   if (isLoading) {
-    return <p>A carregar produtos...</p>;
+    return <div className="loading loadingHome">A carregar produtos...</div>;
   }
 
   return (
-    <div>
-      <div className={styles.header}>
+    <div className="container">
+      <div className="header">
         <h1>Nossos Produtos</h1>
-        <Link to="/cart" className={styles.viewCartButton}>
+        <Link to="/cart" className="btn btn-accent">
           Ver o carrinho
         </Link>
       </div>
-      <div className={styles.productGrid}>
+      <div className="productGrid">
         {products.map((product) => (
           <ProductCard
             key={product.id}

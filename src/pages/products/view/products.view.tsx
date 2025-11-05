@@ -1,6 +1,7 @@
+import '../styles/products.styles.css';
+
 import { Link } from 'react-router-dom';
 
-import styles from '../styles/product.view.module.css';
 import type { ProductsProps } from '../types';
 
 export default function Products({
@@ -12,27 +13,23 @@ export default function Products({
   handleVariantChange,
   handleAddToCart,
 }: Readonly<ProductsProps>) {
-  if (isLoading) return <div className={styles.loading}>A carregar...</div>;
-  if (error) return <div className={styles.error}>{error}</div>;
+  if (isLoading) return <div className="loading">A carregar...</div>;
+  if (error) return <div className="error">{error}</div>;
   if (!product) return null;
 
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.productLayout}>
-        <img
-          src={product.image}
-          alt={product.name}
-          className={styles.productImage}
-        />
-        <div className={styles.productDetails}>
-          <h1 className={styles.productName}>{product.name}</h1>
-          <p className={styles.productPrice}>{productPriceFormatted}</p>
-          <p className={styles.productDescription}>{product.description}</p>
+    <div className="pageContainer">
+      <div className="productLayout">
+        <img src={product.image} alt={product.name} className="productImage" />
+        <div className="productDetails">
+          <h1 className="productName">{product.name}</h1>
+          <p className="productPrice">{productPriceFormatted}</p>
+          <p className="productDescription">{product.description}</p>
 
           {product.variants && (
-            <div className={styles.variantsSection}>
+            <div className="variantsSection">
               {product.variants.map((variant) => (
-                <div key={variant.name} className={styles.variantGroup}>
+                <div key={variant.name} className="variantGroup">
                   <label htmlFor={variant.name}>{variant.name}</label>
                   <select
                     id={variant.name}
@@ -51,14 +48,11 @@ export default function Products({
               ))}
             </div>
           )}
-          <div className={styles.buttonGroup}>
-            <button
-              onClick={handleAddToCart}
-              className={styles.addToCartButton}
-            >
+          <div className="buttonGroup">
+            <button onClick={handleAddToCart} className="btn btn-accent">
               Adicionar ao Carrinho
             </button>
-            <Link to="/cart" className={styles.viewCartButton}>
+            <Link to="/cart" className="btn btn-secondary">
               Ver o carrinho
             </Link>
           </div>

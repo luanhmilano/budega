@@ -1,5 +1,6 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext } from 'react';
 
+import { useLocalStorage } from '../hooks/use-local-storage';
 import type { CartContextType, CartItem } from '../pages/cart/types';
 import type { Product } from '../pages/products/types';
 
@@ -74,8 +75,17 @@ const cartReducer = (state: CartItem[], action: CartAction): CartItem[] => {
   }
 };
 
+const CART_STORAGE_KEY = 'budega-cart';
+
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [cartItems, dispatch] = useReducer(cartReducer, []);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    CART_STORAGE_KEY,
+    [],
+  );
+
+  const dispatch = (action: CartAction) => {
+    setCartItems((currentItems) => cartReducer(currentItems, action));
+  };
 
   const addToCart = (
     product: Product,

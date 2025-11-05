@@ -1,0 +1,118 @@
+/* Container principal da página */
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+/* Layout do produto */
+.productLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .productLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* Imagem do produto */
+.productImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all 0.2s ease;
+}
+
+.productImage:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Detalhes do produto */
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.productName {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: 0;
+}
+
+.productPrice {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.productDescription {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Seção de variantes */
+.variantsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-background-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.variantGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.variantGroup label {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+.variantGroup select {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
+  background-color: var(--color-background);
+  transition: border-color 0.2s ease;
+}
+
+.variantGroup select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Grupo de botões */
+.buttonGroup {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .buttonGroup {
+    flex-direction: column;
+  }
+}
