@@ -1,10 +1,3 @@
-.pageContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-lg);
-  background-color: var(--color-background);
-}
-
 .cartGrid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -103,29 +96,6 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.removeButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  border: none;
-  border-radius: var(--border-radius);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  background-color: #dc2626;
-  color: var(--color-background);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--box-shadow);
-}
-
-.removeButton:hover {
-  background-color: #b91c1c;
-  transform: translateY(-1px);
-}
-
 .summary {
   background-color: var(--color-background-offset);
   border: 1px solid var(--color-border);
@@ -168,32 +138,6 @@
   margin-top: var(--space-md);
 }
 
-.checkoutButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-lg) var(--space-xl);
-  border: none;
-  border-radius: var(--border-radius);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  background-color: var(--color-accent);
-  color: var(--color-background);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--box-shadow);
-  margin-top: var(--space-lg);
-}
-
-.checkoutButton:hover {
-  background-color: #ea580c;
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
 .emptyCart {
   max-width: 500px;
   margin: var(--space-xxl) auto;
@@ -211,29 +155,4 @@
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-lg);
-}
-
-.continueShopping {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-lg) var(--space-xl);
-  border: none;
-  border-radius: var(--border-radius);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-  background-color: var(--color-primary);
-  color: var(--color-background);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--box-shadow);
-}
-
-.continueShopping:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-  text-decoration: none;
 }

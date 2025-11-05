@@ -1,7 +1,5 @@
 /* Container principal do checkout */
 .checkoutContainer {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: var(--space-lg);
 }
 
@@ -170,12 +168,6 @@
   flex-direction: column;
   gap: var(--space-md);
   margin-top: var(--space-lg);
-}
-
-.continueShoppingButton:hover {
-  background-color: var(--color-background-offset);
-  transform: translateY(-2px);
-  text-decoration: none;
 }
 
 /* Estado vazio */

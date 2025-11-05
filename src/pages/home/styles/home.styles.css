@@ -42,20 +42,7 @@
   }
 }
 
-/* Estado de loading específico para home */
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-xxl);
-  color: var(--color-text-secondary);
+.loadingHome {
   font-size: var(--font-size-lg);
   min-height: 200px;
-}
-
-/* Container principal da home (se necessário) */
-.homeContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-lg);
 }

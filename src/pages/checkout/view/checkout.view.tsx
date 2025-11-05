@@ -40,12 +40,6 @@ export default function Checkout({
               backend.
             </p>
           </div>
-
-          <div className="checkoutActions">
-            <Link to="/" className="btn btn-primary" onClick={clearCart}>
-              Continuar Comprando
-            </Link>
-          </div>
         </div>
 
         <div className="orderSummary">
@@ -95,6 +89,12 @@ export default function Checkout({
               <span>Total</span>
               <span>{formattedPrice(totalPrice)}</span>
             </div>
+          </div>
+
+          <div className="checkoutActions">
+            <Link to="/" className="btn btn-primary" onClick={clearCart}>
+              Continuar Comprando
+            </Link>
           </div>
         </div>
       </div>

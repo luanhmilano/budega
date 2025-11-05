@@ -16,7 +16,7 @@ export default function Cart({
     return (
       <div className="emptyCart">
         <h2>O seu carrinho está vazio.</h2>
-        <Link to="/" className="btn btn-primary continueShopping">
+        <Link to="/" className="btn btn-primary">
           Continuar a comprar
         </Link>
       </div>
@@ -24,7 +24,7 @@ export default function Cart({
   }
 
   return (
-    <div className="container pageContainer">
+    <div className="container">
       <h1>Meu Carrinho</h1>
       <div className="cartGrid">
         <div className="cartItems">
@@ -57,7 +57,7 @@ export default function Cart({
                 />
                 <button
                   onClick={() => removeFromCart(item.cartItemId)}
-                  className="removeButton"
+                  className="btn btn-danger btn-small"
                 >
                   Remover
                 </button>
@@ -80,14 +80,10 @@ export default function Cart({
             <span>Total</span>
             <span>{formattedTotalPrice}</span>
           </div>
-          <Link to="/checkout" className="btn btn-accent checkoutButton">
+          <Link to="/checkout" className="btn btn-accent">
             Finalizar Compra
           </Link>
-          <button
-            type="button"
-            onClick={clearCart}
-            className="btn removeButton"
-          >
+          <button type="button" onClick={clearCart} className="btn btn-danger">
             Esvaziar Carrinho
           </button>
         </div>

@@ -49,10 +49,10 @@ export default function Products({
             </div>
           )}
           <div className="buttonGroup">
-            <button onClick={handleAddToCart} className="btn addToCartButton">
+            <button onClick={handleAddToCart} className="btn btn-accent">
               Adicionar ao Carrinho
             </button>
-            <Link to="/cart" className="btn viewCartButton">
+            <Link to="/cart" className="btn btn-secondary">
               Ver o carrinho
             </Link>
           </div>

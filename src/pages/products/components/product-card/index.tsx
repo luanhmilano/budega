@@ -22,10 +22,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <Link to={`/product/${product.id}`} className="btn btn-primary">
           Ver Produto
         </Link>
-        <button
-          className="btn btn-accent addToCartButton"
-          onClick={() => onAddToCart(product)}
-        >
+        <button className="btn btn-accent" onClick={() => onAddToCart(product)}>
           Adicionar ao Carrinho
         </button>
       </div>

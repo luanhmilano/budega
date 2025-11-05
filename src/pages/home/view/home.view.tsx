@@ -11,11 +11,11 @@ export default function Home({
   handleAddToCart,
 }: Readonly<HomeProps>) {
   if (isLoading) {
-    return <div className="loading">A carregar produtos...</div>;
+    return <div className="loading loadingHome">A carregar produtos...</div>;
   }
 
   return (
-    <div className="homeContainer">
+    <div className="container">
       <div className="header">
         <h1>Nossos Produtos</h1>
         <Link to="/cart" className="btn btn-accent">
