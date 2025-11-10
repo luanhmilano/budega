@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { formattedPrice } from '../../../src/utils/formatted-price/index';
+import { formattedPrice } from '../../../../src/utils/formatted-price/index';
 
 describe('formattedPrice', () => {
   it('should format positive integers correctly', () => {
