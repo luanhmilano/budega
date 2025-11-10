@@ -1,8 +1,8 @@
 import '../styles/checkout.styles.css';
 
+import { formattedPrice } from '@utils/formatted-price';
 import { Link } from 'react-router-dom';
 
-import { formattedPrice } from '../../../utils/formatted-price';
 import type { CheckoutProps } from '../types';
 
 export default function Checkout({
