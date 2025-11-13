@@ -25,7 +25,7 @@ describe('useCart Hook', () => {
   });
 
   describe('main behavior', () => {
-    it('it should render context correctly in a CartProvider', () => {
+    it('should render context correctly in a CartProvider', () => {
       const { result } = renderHook(() => useCart(), {
         wrapper: CartProvider,
       });
@@ -73,25 +73,10 @@ describe('useCart Hook', () => {
   });
 
   describe('error handling', () => {
-    it('should throw an error when used outside of CartProvider.', () => {
+    it('should throw an error with specific message when used outside CartProvider', () => {
       expect(() => {
         renderHook(() => useCart());
       }).toThrow('useCart deve ser usado dentro de um CartProvider');
-    });
-
-    it('should throw an error with a specific message in Portuguese.', () => {
-      const expectedErrorMessage =
-        'useCart deve ser usado dentro de um CartProvider';
-
-      expect(() => {
-        renderHook(() => useCart());
-      }).toThrow(expectedErrorMessage);
-    });
-
-    it('should throw an error whent context is undefined', () => {
-      expect(() => {
-        renderHook(() => useCart());
-      }).toThrowError(Error);
     });
   });
 
